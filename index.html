@@ -288,6 +288,32 @@
   .adv-icon { width: 56px; height: 56px; border-radius: 14px; background: rgba(175,75,237,0.10); border: 1px solid rgba(175,75,237,0.22); display: grid; place-items: center; margin-bottom: 22px; font-size: 1.7rem; }
   .adv-card h3 { margin-bottom: 10px; }
 
+  /* ============== QUALIFIER (Is this for you?) ============== */
+  .qualifier { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: stretch; }
+  @media (max-width: 860px) { .qualifier { grid-template-columns: 1fr; gap: 18px; } }
+  .qual-col { background: white; border-radius: var(--radius-lg); padding: 40px 36px 36px; border: 1.5px solid var(--lavender-100); box-shadow: 0 8px 28px -12px rgba(118,43,164,0.10); display: flex; flex-direction: column; }
+  .qual-col.qual-yes { background: linear-gradient(180deg, var(--soft) 0%, #ffffff 60%); border-color: rgba(175,75,237,0.40); box-shadow: var(--shadow-soft); }
+  .qual-col.qual-no  { background: linear-gradient(180deg, #fdf6f6 0%, #ffffff 60%); border-color: rgba(208,69,69,0.18); }
+  .qual-head { display: flex; flex-direction: column; gap: 10px; margin-bottom: 22px; }
+  .qual-badge { display: inline-flex; align-items: center; gap: 6px; align-self: flex-start; font-family: 'Manrope', sans-serif; font-size: 0.7rem; letter-spacing: 0.16em; font-weight: 800; padding: 5px 12px; border-radius: 999px; text-transform: uppercase; }
+  .qual-badge-yes { background: rgba(20,152,58,0.12); color: var(--green); border: 1px solid rgba(20,152,58,0.30); }
+  .qual-badge-no  { background: rgba(208,69,69,0.10); color: var(--bad); border: 1px solid rgba(208,69,69,0.30); }
+  .qual-head h3 { font-size: 1.5rem; line-height: 1.15; color: var(--ink); }
+  .qual-list { list-style: none; padding: 0; margin: 0 0 24px; display: grid; gap: 14px; flex: 1; }
+  .qual-list li { display: flex; align-items: flex-start; gap: 12px; font-size: 0.98rem; line-height: 1.5; color: var(--ink); }
+  .qual-mark { flex: 0 0 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; font-size: 0.78rem; font-weight: 900; margin-top: 1px; }
+  .qual-mark-yes { background: rgba(20,152,58,0.14); color: var(--green); border: 1px solid rgba(20,152,58,0.32); }
+  .qual-mark-no  { background: rgba(208,69,69,0.10); color: var(--bad); border: 1px solid rgba(208,69,69,0.32); }
+  .qual-col.qual-no .qual-list li { color: var(--muted); }
+  .qual-cta { margin-top: auto; align-self: flex-start; }
+  .qual-foot { margin-top: auto; font-size: 0.88rem; color: var(--muted); line-height: 1.5; padding-top: 4px; }
+  @media (max-width: 760px) {
+    .qual-col { padding: 32px 26px 28px; }
+    .qual-head h3 { font-size: 1.3rem; }
+    .qual-list li { font-size: 0.95rem; }
+    .qual-cta { width: 100%; }
+  }
+
   /* ============== COMPARISON ============== */
   .compare-head { text-align: center; max-width: 720px; margin: 0 auto 56px; }
   .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
@@ -713,6 +739,115 @@
     </div>
   </div>
 </div>
+
+<!-- ============ IS THIS YOU? (QUALIFIER) ============ -->
+<section class="section" id="who">
+  <div class="container">
+    <div class="section-head" style="margin-bottom: 40px;">
+      <span class="eyebrow"><span class="dot"></span> Is this for you?</span>
+      <h2 style="margin-top:22px;">Built for some men.<br/>Not for everyone.</h2>
+      <p>DirectCare AI Hair Regrowth is a prescription protocol, not a wellness supplement. A US-licensed clinician decides if you qualify. Here's how to know if you're a fit before you take the 60-second match.</p>
+    </div>
+    <div class="qualifier">
+
+      <div class="qual-col qual-yes">
+        <div class="qual-head">
+          <span class="qual-badge qual-badge-yes">YOU'RE A FIT</span>
+          <h3>This is for you if…</h3>
+        </div>
+        <ul class="qual-list">
+          <li><span class="qual-mark qual-mark-yes">✓</span> You're a man 18+ seeing thinning, a receding hairline, or crown loss</li>
+          <li><span class="qual-mark qual-mark-yes">✓</span> Drugstore Minoxidil alone hasn't been enough — or you've never started</li>
+          <li><span class="qual-mark qual-mark-yes">✓</span> You're open to a topical, oral, or combination protocol</li>
+          <li><span class="qual-mark qual-mark-yes">✓</span> You want a US-licensed clinician between you and the bottle</li>
+          <li><span class="qual-mark qual-mark-yes">✓</span> You're willing to give the protocol at least 90 days to work</li>
+          <li><span class="qual-mark qual-mark-yes">✓</span> You want plain, unmarked monthly delivery</li>
+        </ul>
+        <a href="#quiz" class="btn btn-primary btn-primary-xl qual-cta">Take the 60-Second Match →</a>
+      </div>
+
+      <div class="qual-col qual-no">
+        <div class="qual-head">
+          <span class="qual-badge qual-badge-no">NOT A FIT</span>
+          <h3>This is NOT for you if…</h3>
+        </div>
+        <ul class="qual-list">
+          <li><span class="qual-mark qual-mark-no">✕</span> You're under 18</li>
+          <li><span class="qual-mark qual-mark-no">✕</span> You're pregnant, breastfeeding, or trying to conceive (Finasteride &amp; Dutasteride formulations are unsafe)</li>
+          <li><span class="qual-mark qual-mark-no">✕</span> You're taking nitrate medications or being treated for an active cardiovascular condition (clinician-dependent)</li>
+          <li><span class="qual-mark qual-mark-no">✕</span> You want a one-time pill with no follow-up — this is an ongoing protocol</li>
+          <li><span class="qual-mark qual-mark-no">✕</span> You want guaranteed results in 30 days — biological regrowth takes 3–6 months minimum</li>
+          <li><span class="qual-mark qual-mark-no">✕</span> You're not willing to share basic medical history with a US-licensed clinician</li>
+        </ul>
+        <p class="qual-foot">No problem if any of these apply — we'd rather tell you up front than waste your time.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3-QUESTION QUIZ ============ -->
+<section class="section soft" id="quiz">
+  <div class="container">
+    <div class="section-head" style="margin-bottom:32px;">
+      <span class="eyebrow"><span class="dot"></span> 60-Second Match</span>
+      <h2 style="margin-top:22px;">Which hair protocol fits you?</h2>
+      <p>Three quick questions. Then a US-licensed clinician reviews your free evaluation and prescribes the protocol that matches. <strong style="color:var(--ink);">No charge if you don't qualify.</strong></p>
+    </div>
+    <div class="quiz-wrap" id="quiz-wrap">
+      <div class="quiz-head">
+        <div class="quiz-progress" aria-hidden="true">
+          <span class="active" data-step="1"></span>
+          <span data-step="2"></span>
+          <span data-step="3"></span>
+        </div>
+      </div>
+
+      <div class="quiz-step active" data-step="1">
+        <p class="quiz-q">Where is the hair loss most visible right now?</p>
+        <div class="quiz-options">
+          <button type="button" class="quiz-option" data-answer="hairline">Hairline / temples receding <span class="opt-arrow">→</span></button>
+          <button type="button" class="quiz-option" data-answer="crown">Thinning at the crown <span class="opt-arrow">→</span></button>
+          <button type="button" class="quiz-option" data-answer="diffuse">Diffuse thinning across the whole scalp <span class="opt-arrow">→</span></button>
+          <button type="button" class="quiz-option" data-answer="parting">Widening part / female-pattern thinning <span class="opt-arrow">→</span></button>
+        </div>
+      </div>
+
+      <div class="quiz-step" data-step="2">
+        <p class="quiz-q">How would you describe your treatment goal?</p>
+        <div class="quiz-options">
+          <button type="button" class="quiz-option" data-answer="stop">Just stop the loss <span class="opt-arrow">→</span></button>
+          <button type="button" class="quiz-option" data-answer="regrow">Stop loss AND visibly regrow <span class="opt-arrow">→</span></button>
+          <button type="button" class="quiz-option" data-answer="aggressive">Aggressive — I've already plateaued on Finasteride <span class="opt-arrow">→</span></button>
+          <button type="button" class="quiz-option" data-answer="hormone-free">Hormone-free option only (no Finasteride) <span class="opt-arrow">→</span></button>
+        </div>
+      </div>
+
+      <div class="quiz-step" data-step="3">
+        <p class="quiz-q">Are you open to a daily oral medication?</p>
+        <div class="quiz-options">
+          <button type="button" class="quiz-option" data-answer="oral-yes">Yes — pills are easier than topicals <span class="opt-arrow">→</span></button>
+          <button type="button" class="quiz-option" data-answer="topical-only">No — topical only, please <span class="opt-arrow">→</span></button>
+          <button type="button" class="quiz-option" data-answer="both">Either — I want what works best <span class="opt-arrow">→</span></button>
+          <button type="button" class="quiz-option" data-answer="not-sure">Not sure — I want the clinician to recommend <span class="opt-arrow">→</span></button>
+        </div>
+      </div>
+
+      <div class="quiz-finish" id="quiz-finish">
+        <div class="checkmark">✓</div>
+        <h3>Great — let's get you matched.</h3>
+        <p>A US-licensed DirectCare AI clinician will review your full evaluation and prescribe the protocol that best matches your hair-loss pattern and goals. <strong style="color:var(--ink);">No charge if you don't qualify.</strong></p>
+        <a href="https://business.tellescope.com/e/public/form?f=69c1e76a88e5800ffbb0c73b&businessId=67fe9d4248c4ab911e8bdcd6&nextFormId=&publicIdentifier=&customTypeId=&orgIds=&skipMatch=false&autoStart=false&sessionId=&" class="btn btn-primary btn-primary-xl">Continue to Free Evaluation →</a>
+      </div>
+
+      <div class="quiz-actions">
+        <button type="button" class="quiz-back" id="quiz-back" style="visibility:hidden;">← Back</button>
+        <span style="font-size:0.8rem; color:var(--muted);"><span id="quiz-step-num">1</span> of 3</span>
+      </div>
+      <p class="quiz-disclaimer">This pre-screen is not a medical diagnosis. Final eligibility is determined by a US-licensed clinician after a full intake review. HIPAA-protected.</p>
+    </div>
+  </div>
+</section>
 
 <!-- ============ VALUE PROP ============ -->
 <section class="section">
@@ -1255,68 +1390,7 @@
   </div>
 </section>
 
-<!-- ============ 3-QUESTION QUIZ ============ -->
-<section class="section soft" id="quiz">
-  <div class="container">
-    <div class="section-head" style="margin-bottom:32px;">
-      <span class="eyebrow"><span class="dot"></span> 60-Second Match</span>
-      <h2 style="margin-top:22px;">Which hair protocol fits you?</h2>
-      <p>Three quick questions. Then a US-licensed clinician reviews your free evaluation and prescribes the protocol that matches.</p>
-    </div>
-    <div class="quiz-wrap" id="quiz-wrap">
-      <div class="quiz-head">
-        <div class="quiz-progress" aria-hidden="true">
-          <span class="active" data-step="1"></span>
-          <span data-step="2"></span>
-          <span data-step="3"></span>
-        </div>
-      </div>
-
-      <div class="quiz-step active" data-step="1">
-        <p class="quiz-q">Where is the hair loss most visible right now?</p>
-        <div class="quiz-options">
-          <button type="button" class="quiz-option" data-answer="hairline">Hairline / temples receding <span class="opt-arrow">→</span></button>
-          <button type="button" class="quiz-option" data-answer="crown">Thinning at the crown <span class="opt-arrow">→</span></button>
-          <button type="button" class="quiz-option" data-answer="diffuse">Diffuse thinning across the whole scalp <span class="opt-arrow">→</span></button>
-          <button type="button" class="quiz-option" data-answer="parting">Widening part / female-pattern thinning <span class="opt-arrow">→</span></button>
-        </div>
-      </div>
-
-      <div class="quiz-step" data-step="2">
-        <p class="quiz-q">How would you describe your treatment goal?</p>
-        <div class="quiz-options">
-          <button type="button" class="quiz-option" data-answer="stop">Just stop the loss <span class="opt-arrow">→</span></button>
-          <button type="button" class="quiz-option" data-answer="regrow">Stop loss AND visibly regrow <span class="opt-arrow">→</span></button>
-          <button type="button" class="quiz-option" data-answer="aggressive">Aggressive — I've already plateaued on Finasteride <span class="opt-arrow">→</span></button>
-          <button type="button" class="quiz-option" data-answer="hormone-free">Hormone-free option only (no Finasteride) <span class="opt-arrow">→</span></button>
-        </div>
-      </div>
-
-      <div class="quiz-step" data-step="3">
-        <p class="quiz-q">Are you open to a daily oral medication?</p>
-        <div class="quiz-options">
-          <button type="button" class="quiz-option" data-answer="oral-yes">Yes — pills are easier than topicals <span class="opt-arrow">→</span></button>
-          <button type="button" class="quiz-option" data-answer="topical-only">No — topical only, please <span class="opt-arrow">→</span></button>
-          <button type="button" class="quiz-option" data-answer="both">Either — I want what works best <span class="opt-arrow">→</span></button>
-          <button type="button" class="quiz-option" data-answer="not-sure">Not sure — I want the clinician to recommend <span class="opt-arrow">→</span></button>
-        </div>
-      </div>
-
-      <div class="quiz-finish" id="quiz-finish">
-        <div class="checkmark">✓</div>
-        <h3>Great — let's get you matched.</h3>
-        <p>A US-licensed DirectCare AI clinician will review your full evaluation and prescribe the protocol that best matches your hair-loss pattern and goals. <strong style="color:var(--ink);">No charge if you don't qualify.</strong></p>
-        <a href="https://business.tellescope.com/e/public/form?f=69c1e76a88e5800ffbb0c73b&businessId=67fe9d4248c4ab911e8bdcd6&nextFormId=&publicIdentifier=&customTypeId=&orgIds=&skipMatch=false&autoStart=false&sessionId=&" class="btn btn-primary btn-primary-xl">Continue to Free Evaluation →</a>
-      </div>
-
-      <div class="quiz-actions">
-        <button type="button" class="quiz-back" id="quiz-back" style="visibility:hidden;">← Back</button>
-        <span style="font-size:0.8rem; color:var(--muted);"><span id="quiz-step-num">1</span> of 3</span>
-      </div>
-      <p class="quiz-disclaimer">This pre-screen is not a medical diagnosis. Final eligibility is determined by a US-licensed clinician after a full intake review. HIPAA-protected.</p>
-    </div>
-  </div>
-</section>
+<!-- Quiz moved to top of page (after trust seal bar) -->
 
 <!-- ============ HOW IT WORKS ============ -->
 <section class="section" id="how">
@@ -1718,6 +1792,7 @@
       '.section .section-head',
       '.section .stack-head',
       '.section .compare-head',
+      '.qual-col',
       '.vp-grid > div',
       '.prod-card',
       '.ing-explorer',
