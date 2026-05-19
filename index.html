@@ -488,7 +488,7 @@
     .trust-row { gap: 14px; margin-top: 32px; font-size: 0.8rem; flex-direction: column; }
     .trust-divider { display: none; }
     .triad-row, .triad-row.flip { padding: 32px 24px; gap: 28px; }
-    .triad-art { max-width: 280px; margin: 0 auto; }
+    .triad-art { max-width: 100%; margin: 0 auto; }
     .adv-card { padding: 32px 26px; }
     .prod-card { padding: 28px 24px; }
     .compare-card { padding: 32px 24px; }
@@ -954,106 +954,97 @@
                 <stop offset="100%" stop-color="#BE7ED8"/>
               </radialGradient>
               <radialGradient id="dhtGlow" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#ff6a6a" stop-opacity="0.45"/>
+                <stop offset="0%" stop-color="#ff6a6a" stop-opacity="0.40"/>
                 <stop offset="100%" stop-color="#ff6a6a" stop-opacity="0"/>
               </radialGradient>
-              <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
-                <feGaussianBlur stdDeviation="2"/>
-              </filter>
+              <marker id="arrowSm2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#9043bf"/>
+              </marker>
             </defs>
 
             <!-- Background -->
             <rect width="400" height="400" fill="url(#bg1)"/>
 
             <!-- Title -->
-            <text x="200" y="34" text-anchor="middle" fill="#44215A" font-family="Manrope, sans-serif" font-weight="800" font-size="16" letter-spacing="0.5">SCALP CROSS-SECTION</text>
+            <text x="200" y="30" text-anchor="middle" fill="#44215A" font-family="Manrope, sans-serif" font-weight="800" font-size="15" letter-spacing="0.5">SCALP CROSS-SECTION</text>
 
-            <!-- Skin layers -->
-            <!-- Air zone above scalp surface -->
-            <rect x="0" y="50" width="400" height="68" fill="#fbf5fe" opacity="0.4"/>
-            <!-- Scalp surface (epidermis line) -->
-            <line x1="20" y1="118" x2="380" y2="118" stroke="#af4bed" stroke-width="1.2" stroke-dasharray="3 3" opacity="0.65"/>
-            <text x="28" y="111" fill="#9043bf" font-family="Manrope, sans-serif" font-weight="800" font-size="9" letter-spacing="0.5">SCALP SURFACE</text>
-            <!-- Dermis (light) -->
-            <rect x="0" y="118" width="400" height="220" fill="url(#skin1)"/>
+            <!-- Scalp surface line -->
+            <rect x="0" y="48" width="400" height="68" fill="#fbf5fe" opacity="0.4"/>
+            <line x1="14" y1="116" x2="386" y2="116" stroke="#af4bed" stroke-width="1.2" stroke-dasharray="3 3" opacity="0.65"/>
+            <text x="20" y="108" fill="#9043bf" font-family="Manrope, sans-serif" font-weight="800" font-size="8.5" letter-spacing="0.5">SCALP SURFACE</text>
+            <rect x="0" y="116" width="400" height="220" fill="url(#skin1)"/>
 
-            <!-- ===== Follicle 1 — HEALTHY (left) ===== -->
-            <g transform="translate(80,0)">
-              <!-- Hair shaft (above scalp) -->
-              <path d="M0,60 C-1,88 1,108 0,118" stroke="url(#hairBrand)" stroke-width="6" stroke-linecap="round" fill="none"/>
-              <!-- Root sheath / channel through skin -->
-              <path d="M-3,118 Q-3,210 -10,280 Q-10,310 0,318 Q10,310 10,280 Q3,210 3,118 Z" fill="#fff" stroke="#af4bed" stroke-width="1.5"/>
-              <!-- Bulb (dermal papilla) -->
-              <ellipse cx="0" cy="312" rx="16" ry="20" fill="url(#bulbHealthy)"/>
-              <circle cx="-4" cy="306" r="3" fill="#fff" opacity="0.6"/>
-              <!-- Label -->
-              <text x="0" y="362" text-anchor="middle" fill="#44215A" font-family="Manrope, sans-serif" font-weight="800" font-size="12">HEALTHY</text>
-              <text x="0" y="378" text-anchor="middle" fill="#9043bf" font-family="Inter, sans-serif" font-size="9.5">Terminal hair</text>
+            <!-- Lane separators (faint vertical dividers between follicles) -->
+            <g stroke="#af4bed" stroke-width="0.6" stroke-dasharray="2 4" opacity="0.16">
+              <line x1="133" y1="52" x2="133" y2="336"/>
+              <line x1="267" y1="52" x2="267" y2="336"/>
             </g>
 
-            <!-- ===== Follicle 2 — MINIATURIZED with DHT (center) ===== -->
-            <g transform="translate(200,0)">
-              <!-- DHT cloud glow -->
-              <circle cx="0" cy="260" r="60" fill="url(#dhtGlow)"/>
-              <!-- Thin short shaft -->
-              <path d="M0,98 C-1,108 1,114 0,118" stroke="url(#hairBrand)" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.75"/>
-              <!-- Shrunken follicle channel -->
-              <path d="M-2,118 Q-2,180 -6,230 Q-6,254 0,260 Q6,254 6,230 Q2,180 2,118 Z" fill="#fff" stroke="#af4bed" stroke-width="1.3" opacity="0.9"/>
-              <!-- Shrunken bulb -->
-              <ellipse cx="0" cy="256" rx="10" ry="13" fill="url(#bulbWeak)"/>
-              <!-- DHT molecules attacking -->
-              <g font-family="Manrope, sans-serif" font-weight="900" font-size="9" fill="#fff">
-                <circle cx="-32" cy="240" r="12" fill="#d04545" opacity="0.9"/>
-                <text x="-32" y="244" text-anchor="middle">DHT</text>
-                <circle cx="34" cy="276" r="11" fill="#d04545" opacity="0.85"/>
-                <text x="34" y="280" text-anchor="middle">DHT</text>
-                <circle cx="-26" cy="282" r="9" fill="#d04545" opacity="0.75"/>
-                <circle cx="28" cy="232" r="8" fill="#d04545" opacity="0.7"/>
-              </g>
-              <!-- Arrow pointing in -->
-              <path d="M-22,242 L-12,252" stroke="#d04545" stroke-width="1.5" stroke-linecap="round"/>
-              <path d="M24,272 L14,260" stroke="#d04545" stroke-width="1.5" stroke-linecap="round"/>
-              <!-- Label -->
-              <text x="0" y="362" text-anchor="middle" fill="#44215A" font-family="Manrope, sans-serif" font-weight="800" font-size="12">MINIATURIZED</text>
-              <text x="0" y="378" text-anchor="middle" fill="#d04545" font-family="Inter, sans-serif" font-size="9.5" font-weight="700">DHT binding · shaft thinning</text>
-            </g>
-
-            <!-- ===== Follicle 3 — BLOCKED & REGROWN (right) ===== -->
-            <g transform="translate(320,0)">
-              <!-- Thick restored hair shaft -->
-              <path d="M0,52 C-1,80 1,104 0,118" stroke="url(#hairBrand)" stroke-width="7" stroke-linecap="round" fill="none"/>
-              <!-- Healthy follicle channel -->
-              <path d="M-3,118 Q-3,210 -10,280 Q-10,310 0,318 Q10,310 10,280 Q3,210 3,118 Z" fill="#fff" stroke="#af4bed" stroke-width="1.5"/>
-              <!-- Full bulb -->
-              <ellipse cx="0" cy="312" rx="16" ry="20" fill="url(#bulbHealthy)"/>
-              <circle cx="-4" cy="306" r="3" fill="#fff" opacity="0.6"/>
-              <!-- Blocker shield — Finasteride/Dutasteride intercepting DHT -->
-              <g transform="translate(-32,250)">
-                <path d="M0,0 L20,-8 L20,8 Q20,22 10,28 Q0,22 0,8 Z" fill="#fff" stroke="#14983A" stroke-width="2"/>
-                <path d="M6,10 L9,14 L15,5" stroke="#14983A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-              </g>
-              <!-- DHT being blocked (red with cross) -->
-              <g font-family="Manrope, sans-serif" font-weight="900" font-size="8.5" fill="#fff">
-                <circle cx="-56" cy="240" r="10" fill="#d04545" opacity="0.5"/>
-                <text x="-56" y="244" text-anchor="middle">DHT</text>
-                <line x1="-64" y1="232" x2="-48" y2="248" stroke="#7a1f1f" stroke-width="2" stroke-linecap="round"/>
-                <line x1="-48" y1="232" x2="-64" y2="248" stroke="#7a1f1f" stroke-width="2" stroke-linecap="round"/>
-              </g>
-              <!-- Label -->
-              <text x="0" y="362" text-anchor="middle" fill="#44215A" font-family="Manrope, sans-serif" font-weight="800" font-size="12">REGROWN</text>
-              <text x="0" y="378" text-anchor="middle" fill="#14983A" font-family="Inter, sans-serif" font-size="9.5" font-weight="700">DHT blocked · terminal hair restored</text>
-            </g>
-
-            <!-- Center arrows under the title -->
+            <!-- Center arrows between stages -->
             <g stroke="#9043bf" stroke-width="1.5" fill="none" stroke-linecap="round">
-              <path d="M132,72 L168,72" marker-end="url(#arrowSm)"/>
-              <path d="M232,72 L268,72" marker-end="url(#arrowSm)"/>
+              <path d="M122,80 L144,80" marker-end="url(#arrowSm2)"/>
+              <path d="M256,80 L278,80" marker-end="url(#arrowSm2)"/>
             </g>
-            <defs>
-              <marker id="arrowSm" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                <path d="M 0 0 L 10 5 L 0 10 z" fill="#9043bf"/>
-              </marker>
-            </defs>
+
+            <!-- ===== Follicle 1 — HEALTHY (left lane center x=66) ===== -->
+            <g transform="translate(66,0)">
+              <path d="M0,60 C-1,88 1,106 0,116" stroke="url(#hairBrand)" stroke-width="6" stroke-linecap="round" fill="none"/>
+              <path d="M-3,116 Q-3,208 -10,278 Q-10,308 0,316 Q10,308 10,278 Q3,208 3,116 Z" fill="#fff" stroke="#af4bed" stroke-width="1.5"/>
+              <ellipse cx="0" cy="310" rx="15" ry="19" fill="url(#bulbHealthy)"/>
+              <circle cx="-4" cy="304" r="3" fill="#fff" opacity="0.6"/>
+              <text x="0" y="360" text-anchor="middle" fill="#9043bf" font-family="Manrope, sans-serif" font-weight="800" font-size="12" letter-spacing="0.3">HEALTHY</text>
+              <text x="0" y="380" text-anchor="middle" fill="#5b4d65" font-family="Inter, sans-serif" font-size="10">Normal</text>
+            </g>
+
+            <!-- ===== Follicle 2 — MINIATURIZED (center lane x=200) ===== -->
+            <g transform="translate(200,0)">
+              <!-- DHT cloud — stays well within the lane (radius 48, lane half-width is ~62) -->
+              <circle cx="0" cy="252" r="48" fill="url(#dhtGlow)"/>
+              <!-- Thin shaft -->
+              <path d="M0,96 C-1,106 1,112 0,116" stroke="url(#hairBrand)" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.75"/>
+              <!-- Shrunken channel -->
+              <path d="M-2,116 Q-2,178 -6,228 Q-6,252 0,258 Q6,252 6,228 Q2,178 2,116 Z" fill="#fff" stroke="#af4bed" stroke-width="1.3" opacity="0.9"/>
+              <ellipse cx="0" cy="254" rx="9" ry="12" fill="url(#bulbWeak)"/>
+              <!-- DHT molecules — all within ±50px of center -->
+              <g font-family="Manrope, sans-serif" font-weight="900" font-size="8.5" fill="#fff">
+                <circle cx="-26" cy="228" r="10" fill="#d04545" opacity="0.9"/>
+                <text x="-26" y="232" text-anchor="middle">DHT</text>
+                <circle cx="28" cy="272" r="9" fill="#d04545" opacity="0.85"/>
+                <text x="28" y="276" text-anchor="middle">DHT</text>
+                <circle cx="-20" cy="280" r="6" fill="#d04545" opacity="0.7"/>
+                <circle cx="24" cy="226" r="5" fill="#d04545" opacity="0.65"/>
+              </g>
+              <!-- Attack arrows -->
+              <path d="M-17,232 L-9,246" stroke="#d04545" stroke-width="1.4" stroke-linecap="round"/>
+              <path d="M19,268 L11,254" stroke="#d04545" stroke-width="1.4" stroke-linecap="round"/>
+              <text x="0" y="360" text-anchor="middle" fill="#d04545" font-family="Manrope, sans-serif" font-weight="800" font-size="12" letter-spacing="0.3">MINIATURIZED</text>
+              <text x="0" y="380" text-anchor="middle" fill="#5b4d65" font-family="Inter, sans-serif" font-size="10">DHT shrinks shaft</text>
+            </g>
+
+            <!-- ===== Follicle 3 — BLOCKED & REGROWN (right lane x=334) ===== -->
+            <g transform="translate(334,0)">
+              <path d="M0,52 C-1,80 1,104 0,116" stroke="url(#hairBrand)" stroke-width="7" stroke-linecap="round" fill="none"/>
+              <path d="M-3,116 Q-3,208 -10,278 Q-10,308 0,316 Q10,308 10,278 Q3,208 3,116 Z" fill="#fff" stroke="#af4bed" stroke-width="1.5"/>
+              <ellipse cx="0" cy="310" rx="15" ry="19" fill="url(#bulbHealthy)"/>
+              <circle cx="-4" cy="304" r="3" fill="#fff" opacity="0.6"/>
+              <!-- Blocker shield + crossed-out DHT — ABOVE the bulb, contained in this lane -->
+              <g transform="translate(0,180)">
+                <!-- Crossed-out DHT (left side, inside the lane) -->
+                <g font-family="Manrope, sans-serif" font-weight="900" font-size="8" fill="#fff">
+                  <circle cx="-22" cy="0" r="9" fill="#d04545" opacity="0.45"/>
+                  <text x="-22" y="3" text-anchor="middle">DHT</text>
+                  <line x1="-29" y1="-7" x2="-15" y2="7" stroke="#7a1f1f" stroke-width="1.8" stroke-linecap="round"/>
+                  <line x1="-15" y1="-7" x2="-29" y2="7" stroke="#7a1f1f" stroke-width="1.8" stroke-linecap="round"/>
+                </g>
+                <!-- Green Finasteride/Dutasteride shield -->
+                <g transform="translate(10,-12)">
+                  <path d="M0,0 L16,-6 L16,6 Q16,18 8,24 Q0,18 0,6 Z" fill="#fff" stroke="#14983A" stroke-width="2"/>
+                  <path d="M4,8 L7,12 L13,4" stroke="#14983A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                </g>
+              </g>
+              <text x="0" y="360" text-anchor="middle" fill="#14983A" font-family="Manrope, sans-serif" font-weight="800" font-size="12" letter-spacing="0.3">REGROWN</text>
+              <text x="0" y="380" text-anchor="middle" fill="#5b4d65" font-family="Inter, sans-serif" font-size="10">DHT blocked</text>
+            </g>
           </svg>
         </div>
       </div>
