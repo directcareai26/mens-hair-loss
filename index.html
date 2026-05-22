@@ -469,14 +469,25 @@
   .review-card .test-avatar { width: 38px; height: 38px; border-radius: 50%; background: linear-gradient(135deg, var(--brand), var(--brand-darker)); display: grid; place-items: center; font-weight: 800; color: white; font-size: 0.95rem; }
   .review-card .test-verified { margin-left: auto; font-size: 0.7rem; color: var(--green); font-weight: 700; white-space: nowrap; }
 
-  /* ============== FAQ ============== */
-  .faq-wrap { max-width: 840px; margin: 0 auto; }
-  .faq { background: white; border: 1px solid var(--lavender-100); border-radius: var(--radius); margin-bottom: 12px; overflow: hidden; }
-  .faq summary { padding: 24px 28px; cursor: pointer; font-weight: 700; font-family: 'Geist', 'Manrope', sans-serif; font-size: 1.05rem; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; color: var(--ink); }
+  /* ============== FAQ (compact, 2-col, sticky aside — matches home) ============== */
+  .faq-layout { display: grid; grid-template-columns: minmax(260px, 320px) 1fr; gap: clamp(36px, 5vw, 80px); align-items: flex-start; }
+  @media (max-width: 900px) { .faq-layout { grid-template-columns: 1fr; gap: 32px; } }
+  .faq-side { position: sticky; top: 96px; }
+  @media (max-width: 900px) { .faq-side { position: static; } }
+  .faq-side .eyebrow { margin-bottom: 0; }
+  .faq-side h2 { font-size: clamp(1.9rem, 3.2vw, 2.6rem); margin: 16px 0 18px; line-height: 1.05; }
+  .faq-side h2 .accent { background: linear-gradient(135deg, #af4bed 0%, #762ba4 70%, #44215A 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; font-style: italic; }
+  .faq-side p { font-size: 0.96rem; color: var(--muted); line-height: 1.6; margin-bottom: 28px; }
+  .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 16px; }
+  @media (max-width: 700px) { .faq-grid { grid-template-columns: 1fr; } }
+  .faq { background: white; border: 1px solid var(--lavender-100); border-radius: 14px; overflow: hidden; transition: border-color .2s ease, box-shadow .2s ease; align-self: start; }
+  .faq:hover { border-color: rgba(175,75,237,0.30); box-shadow: 0 12px 28px -12px rgba(118,43,164,0.18); }
+  .faq[open] { border-color: rgba(175,75,237,0.40); box-shadow: 0 14px 32px -14px rgba(118,43,164,0.22); }
+  .faq summary { padding: 16px 20px; cursor: pointer; font-weight: 700; font-family: 'Geist', 'Manrope', sans-serif; font-size: 0.95rem; list-style: none; display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; color: var(--ink); line-height: 1.35; }
   .faq summary::-webkit-details-marker { display: none; }
-  .faq summary::after { content: "+"; font-size: 1.5rem; color: var(--brand); font-weight: 400; transition: transform .2s ease; }
+  .faq summary::after { content: "+"; font-size: 1.3rem; line-height: 1; color: var(--brand); font-weight: 400; transition: transform .25s ease; flex-shrink: 0; padding-top: 2px; }
   .faq[open] summary::after { content: "−"; }
-  .faq-body { padding: 0 28px 24px; color: var(--muted); font-size: 0.98rem; line-height: 1.7; }
+  .faq-body { padding: 0 20px 18px; color: var(--muted); font-size: 0.88rem; line-height: 1.55; }
   .faq-body strong { color: var(--ink); }
 
   /* ============== FINAL CTA ============== */
@@ -1661,42 +1672,49 @@
   </div>
 </section>
 
-<!-- ============ FAQ ============ -->
-<section class="section soft">
+<!-- ============ FAQ (2-col compact, matches directcare.ai home) ============ -->
+<section class="section faq-section" id="faq">
   <div class="container">
-    <div class="section-head">
-      <span class="eyebrow"><span class="dot"></span> Questions</span>
-      <h2 style="margin-top:22px;">Everything you wanted to know.</h2>
-    </div>
-    <div class="faq-wrap">
-      <details class="faq" open>
-        <summary>How is this different from hims or generic Finasteride?</summary>
-        <div class="faq-body"><strong>3 to 4 actives in one bottle</strong>, not one molecule. <strong>Compounded to your pattern</strong>, not bottled in bulk. And your clinician <strong>adjusts the protocol at 90 days</strong> based on your photos, most telehealth brands hand you the same bottle for two years.</div>
-      </details>
-      <details class="faq">
-        <summary>How fast will I see results?</summary>
-        <div class="faq-body">Reduced shedding by <strong>week 4</strong>. Fine vellus hairs at <strong>month 2 to 3</strong>. Visible thickening at <strong>month 4 to 6</strong>. Peak result by <strong>month 12</strong>. Hair regrowth is biological, it can't be rushed.</div>
-      </details>
-      <details class="faq">
-        <summary>Will I get the side effects from oral Finasteride?</summary>
-        <div class="faq-body">Oral 1mg Finasteride's sexual side effects affect ~1 to 4% of users. If you're concerned, our <strong>topical Finasteride</strong> has dramatically lower systemic absorption, and our <strong>hormone-free Minoxidil + Fluocinolone + Tretinoin</strong> option skips Finasteride entirely.</div>
-      </details>
-      <details class="faq">
-        <summary>Is this FDA-approved?</summary>
-        <div class="faq-body">Every active inside our protocols is FDA-approved individually. Compounded products are not separately FDA-approved as a finished product, compounding is the legal US pharmacy process that combines FDA-approved actives into one personalized formulation under USP 795/797 standards.</div>
-      </details>
-      <details class="faq">
-        <summary>What if I plateau later?</summary>
-        <div class="faq-body">Plateaus are common around month 12. Your clinician escalates: <strong>topical Finasteride → topical Dutasteride → add oral Minoxidil or oral combo</strong>. Reviewed every 90 days, not refilled blindly.</div>
-      </details>
-      <details class="faq">
-        <summary>How fast does it ship?</summary>
-        <div class="faq-body">Once your clinician approves (typically within 24 hours), your order ships from a US compounding pharmacy and arrives in 3 to 5 business days. Plain, unmarked packaging.</div>
-      </details>
-      <details class="faq">
-        <summary>Is my information private?</summary>
-        <div class="faq-body">Yes. DirectCare AI is HIPAA-compliant. Intake, messages, prescription, and shipping are all encrypted and <strong>never shared</strong>. Card statement reads as a neutral DirectCare AI charge.</div>
-      </details>
+    <div class="faq-layout">
+      <aside class="faq-side">
+        <span class="eyebrow"><span class="dot"></span> Common questions</span>
+        <h2>Everything you'd ask a <span class="accent">clinician.</span></h2>
+        <p>Honest answers, before you start. The questions men ask us most about regrowth protocols — and what our team would tell you on a call.</p>
+      </aside>
+      <div class="faq-grid">
+        <details class="faq" open>
+          <summary>How is this different from hims or generic Finasteride?</summary>
+          <div class="faq-body"><strong>3 to 4 actives in one bottle</strong>, not one molecule. <strong>Compounded to your pattern</strong>, not bottled in bulk. And your clinician <strong>adjusts the protocol at 90 days</strong> based on your photos — most telehealth brands hand you the same bottle for two years.</div>
+        </details>
+        <details class="faq">
+          <summary>How fast will I see results?</summary>
+          <div class="faq-body">Reduced shedding by <strong>week 4</strong>. Fine vellus hairs at <strong>month 2–3</strong>. Visible thickening at <strong>month 4–6</strong>. Peak result by <strong>month 12</strong>. Hair regrowth is biological — it can't be rushed.</div>
+        </details>
+        <details class="faq">
+          <summary>Will I get the side effects from oral Finasteride?</summary>
+          <div class="faq-body">Oral 1mg Finasteride's sexual side effects affect ~1–4% of users. Our <strong>topical Finasteride</strong> has dramatically lower systemic absorption, and our <strong>hormone-free Minoxidil + Fluocinolone + Tretinoin</strong> option skips Finasteride entirely.</div>
+        </details>
+        <details class="faq">
+          <summary>Is this FDA-approved?</summary>
+          <div class="faq-body">Every active inside our protocols is FDA-approved individually. Compounded products are not separately FDA-approved as a finished product — compounding is the legal US pharmacy process that combines FDA-approved actives into one personalized formulation under USP 795/797 standards.</div>
+        </details>
+        <details class="faq">
+          <summary>What if I plateau later?</summary>
+          <div class="faq-body">Plateaus are common around month 12. Your clinician escalates: <strong>topical Finasteride → topical Dutasteride → add oral Minoxidil or oral combo</strong>. Reviewed every 90 days, not refilled blindly.</div>
+        </details>
+        <details class="faq">
+          <summary>How fast does it ship?</summary>
+          <div class="faq-body">Once your clinician approves (typically within 24 hours), your order ships from a US compounding pharmacy and arrives in 3–5 business days. Plain, unmarked packaging.</div>
+        </details>
+        <details class="faq">
+          <summary>What happens if I don't qualify?</summary>
+          <div class="faq-body">You're not charged. The free evaluation is genuinely free. If a clinician decides the protocol isn't safe or appropriate for you, we'll tell you why — and often recommend a better alternative.</div>
+        </details>
+        <details class="faq">
+          <summary>Is my information private?</summary>
+          <div class="faq-body">Yes. DirectCare AI is HIPAA-compliant. Intake, messages, prescription, and shipping are all encrypted and <strong>never shared</strong>. Your card statement reads as a neutral DirectCare AI charge.</div>
+        </details>
+      </div>
     </div>
   </div>
 </section>
