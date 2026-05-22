@@ -943,6 +943,67 @@
     .pp-card .pc-stats > div:nth-child(odd) { border-right: 1px solid #E9D9F2; }
     .pp-card .pc-stats .num { font-size: 1.3rem; }
   }
+
+  /* ============================================================
+     CRISP PASS — flatten chrome, edge-to-edge bands (Hims/Hers/Ro feel)
+     ============================================================ */
+
+  /* OpenLoop partner card → flat, no border, no shadow, no radius */
+  .pp-card {
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    max-width: 1040px !important;
+  }
+  .pp-section { background: linear-gradient(180deg, #ffffff 0%, var(--soft, #fbf5fe) 100%) !important; }
+
+  /* Drop shadows on major contained cards (keep borders for hierarchy) */
+  .prod-card,
+  .adv-card,
+  .qual-col,
+  .ing-explorer,
+  .ing-tab,
+  .triad-row,
+  .vp-image-card,
+  .formula-pill { box-shadow: none !important; }
+
+  .prod-card:hover,
+  .adv-card:hover { box-shadow: 0 8px 22px -12px rgba(118,43,164,0.20) !important; }
+
+  /* Tighten desktop band rhythm */
+  @media (min-width: 721px) {
+    .section { padding: clamp(40px, 4.2vw, 60px) 0 !important; }
+  }
+
+  /* ===== MOBILE CRISP ===== */
+  @media (max-width: 720px) {
+    .section { padding: 28px 0 !important; }
+    .pp-section { padding: 28px 0 !important; }
+
+    /* Kill rounded corners on major contained boxes */
+    .pp-card,
+    .prod-card,
+    .adv-card,
+    .qual-col,
+    .ing-explorer,
+    .triad-row,
+    .vp-image-card,
+    .formula-pill { border-radius: 0 !important; }
+
+    /* Edge-to-edge: stacked cards lose side borders so they feel like rows */
+    .prod-card,
+    .adv-card,
+    .qual-col {
+      border-left: 0 !important;
+      border-right: 0 !important;
+      box-shadow: none !important;
+    }
+
+    /* Partner-card inner padding to 0 on mobile */
+    .pp-card { padding-left: 0 !important; padding-right: 0 !important; }
+  }
 </style>
 <section class="pp-section">
   <div class="container">
@@ -1719,22 +1780,7 @@
   </div>
 </section>
 
-<!-- ============ FINAL CTA (dark, with video) ============ -->
-<section class="section" id="start">
-  <div class="container">
-    <div class="final-cta">
-      <video class="final-cta-video" autoplay muted loop playsinline preload="auto">
-        <source src="https://crsurakhmbalgxim.public.blob.vercel-storage.com/Mens%20Hair%20Loss%20Hero%20Video.mp4" type="video/mp4" />
-      </video>
-      <div class="final-cta-overlay" aria-hidden="true"></div>
-      <span class="eyebrow on-dark"><span class="dot"></span> Ready?</span>
-      <h2 style="margin-top:22px;">Your thicker hair is<br/>one evaluation away.</h2>
-      <p>Your private, 3-minute evaluation is the first step. If a US-licensed clinician approves you, your custom hair-regrowth protocol ships from a US compounding pharmacy in plain packaging, free shipping included.</p>
-      <a href="https://business.tellescope.com/e/public/form?f=69c1e76a88e5800ffbb0c73b&businessId=67fe9d4248c4ab911e8bdcd6&nextFormId=&publicIdentifier=&customTypeId=&orgIds=&skipMatch=false&autoStart=false&sessionId=&" class="btn btn-primary btn-primary-xl magnetic">Start My Free Evaluation →</a>
-      <p class="fine">No charge if you don't qualify. Cancel anytime.</p>
-    </div>
-  </div>
-</section>
+<!-- Final CTA section removed -->
 
 <!-- ============ FOOTER ============ -->
 <footer>
